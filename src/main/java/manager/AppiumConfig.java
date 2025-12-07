@@ -10,12 +10,11 @@ import static utils.PropertiesReader.*;
 
 public class AppiumConfig {
 
-
     public static AppiumDriver createAppiumDriver(String fileName){
         UiAutomator2Options options = new UiAutomator2Options()
                 .setPlatformName(getProperty(fileName, "os"))
                 .setAutomationName(getProperty(fileName, "automationName"))
-                .setDeviceName(getProperty(fileName,"deviceName"))
+                .setDeviceName(getProperty(fileName, "deviceName"))
                 .setAppPackage(getProperty(fileName, "appPackage"))
                 .setAppActivity(getProperty(fileName, "appActivity"))
                 ;
@@ -26,4 +25,5 @@ public class AppiumConfig {
             throw new RuntimeException("Bad Appium URL: "+getProperty(fileName, "appiumUrl"), e);
         }
     }
+
 }
